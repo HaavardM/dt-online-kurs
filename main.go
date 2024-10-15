@@ -1,9 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"log"
-	"log/slog"
-	"math"
+	"time"
 
 	"github.com/HaavardM/dt-online-kurs/internal/alerts"
 	"github.com/HaavardM/dt-online-kurs/internal/disruptive"
@@ -43,22 +43,27 @@ func main() {
 }
 
 func loggingEventHandler(event disruptive.Event) {
-	l := slog.Default().With(
-		slog.String("name", event.DeviceLabels["name"]),
-		slog.Time(slog.TimeKey, event.Timestamp),
-		slog.String("device_id", event.DeviceID),
-	)
 	switch data := event.Data.(type) {
 	case disruptive.TemperatureData:
-		l.Info("temperature event received", slog.Float64("celsius", math.Round(float64(data.Celsius))))
+		fmt.Printf(
+			"%s [%s] temperature is %.1fC\n",
+			event.Timestamp.Format(time.TimeOnly),
+			event.DeviceID,
+			data.Celsius,
+		)
 	case disruptive.ObjectPresentData:
 		text := "OPEN"
 		if data.ObjectPresent {
 			text = "CLOSED"
 		}
-		l.Info(text+" event received", "object_present", slog.BoolValue(data.ObjectPresent))
+		fmt.Printf(
+			"%s [%s] door is %s\n",
+			event.Timestamp.Format(time.TimeOnly),
+			event.DeviceID,
+			text,
+		)
 	case disruptive.TouchData:
-		l.Info("touch event received")
+		fmt.Printf("%s [%s] received touch event\n", event.Timestamp.Format(time.TimeOnly), event.DeviceID)
 	default:
 	}
 }
