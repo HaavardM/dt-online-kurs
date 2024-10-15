@@ -1,8 +1,9 @@
 package main
 
 import (
-	"dt-online-kurs/internal/disruptive"
 	"os"
+
+	"github.com/HaavardM/dt-online-kurs/internal/disruptive"
 )
 
 func main() {

@@ -1,11 +1,12 @@
 package task3
 
 import (
-	"dt-online-kurs/internal/disruptive"
 	"fmt"
 	"math"
 	"sync"
 	"time"
+
+	"github.com/HaavardM/dt-online-kurs/internal/disruptive"
 )
 
 // We want to build an even better solution for the store manager. We know that

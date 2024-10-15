@@ -1,9 +1,10 @@
 package task2
 
 import (
-	"dt-online-kurs/internal/disruptive"
 	"fmt"
 	"sync"
+
+	"github.com/HaavardM/dt-online-kurs/internal/disruptive"
 )
 
 // The store manager now gets alerts every time someone opens the fridge and

@@ -1,10 +1,11 @@
 package task1
 
 import (
-	"dt-online-kurs/internal/alerts"
-	"dt-online-kurs/internal/disruptive"
 	"fmt"
 	"time"
+
+	"github.com/HaavardM/dt-online-kurs/internal/alerts"
+	"github.com/HaavardM/dt-online-kurs/internal/disruptive"
 )
 
 // A store manager in a large grocery store is tired of people forgetting to

@@ -1,15 +1,15 @@
 package main
 
 import (
-	"dt-online-kurs/internal/alerts"
-	"dt-online-kurs/internal/disruptive"
-
-	//"dt-online-kurs/internal/task1"
-	//"dt-online-kurs/internal/task2"
-	//"dt-online-kurs/internal/task3"
 	"log"
 	"log/slog"
 	"math"
+
+	"github.com/HaavardM/dt-online-kurs/internal/alerts"
+	"github.com/HaavardM/dt-online-kurs/internal/disruptive"
+	//"github.com/HaavardM/dt-online-kurs/internal/task1"
+	//"github.com/HaavardM/dt-online-kurs/internal/task2"
+	//"github.com/HaavardM/dt-online-kurs/internal/task3"
 )
 
 func main() {
