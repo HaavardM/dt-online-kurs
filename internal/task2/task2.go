@@ -6,24 +6,25 @@ import (
 	"sync"
 )
 
-/*
-	The sensors are used to monitor doors on fridges in a grocery store. The
-	store manager wants to be alerted when a fridge door is open for more than
-	10 seconds.
-
-*/
+// The store manager now gets alerts every time someone opens the fridge and
+// gets alert fatigue. He now only wants to be notified if a door is left open
+// for more than 5 seconds.
 
 func deviceWorker(deviceID string, c <-chan disruptive.Event) {
 
 	for {
 
 		// https://gobyexample.com/select
+		// https://gobyexample.com/time
+		// https://gobyexample.com/timers
+		// https://gobyexample.com/tickers
+
 		select {
 		case event := <-c:
 			// Handle event
 			fmt.Println(event)
-			// Switch on channels
-			// https://gobyexample.com/tickers
+
+			// Add more select cases to handle different events
 		}
 	}
 
@@ -47,5 +48,5 @@ func EventHandler(event disruptive.Event) {
 
 	// Send event to a device-specific channel
 
-	// Stuck? An implementation is found in the task 3
+	// Stuck? A similar problem is already solved in task 3
 }

@@ -13,15 +13,25 @@ import (
 )
 
 func main() {
-	alerts.Location = "Oslo" // E.g. Oslo, New York, Tokyo, etc.
+	alerts.Location = "" // E.g. Oslo, New York, Tokyo, etc.
 	if alerts.Location == "" {
 		panic("Location must be set")
 	}
 
-	handler := loggingEventHandler
-	//handler = task1.EventHandler
-	//handler = task2.EventHandler
-	//handler = task3.EventHandler
+	handler := func(event disruptive.Event) {
+
+		// It may be easier to debug by looking at a single device during development.
+		// TODO: Remove once you are ready to handle all devices.
+		if event.DeviceID != "my-device-id" {
+			return
+		}
+
+		loggingEventHandler(event)
+		//task1.EventHandler(event)
+		//task2.EventHandler(event)
+		//task3.EventHandler(event)
+
+	}
 
 	// If replay-speed flag is set, replay events from historical data.
 	// Otherwise, receive live events.

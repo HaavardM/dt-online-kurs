@@ -17,4 +17,4 @@ Use the script below to invite yourself to the DT Studio project. You will recei
 ```
 go run scripts/invite.go my-email@provider.com
 ```
-
+[Link to Studio Project](https://studio.disruptive-technologies.com/projects/cs6bd32lh064fjopjmeg/)
